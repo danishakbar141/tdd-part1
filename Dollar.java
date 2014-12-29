@@ -2,26 +2,20 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example6;
-
+package money;
 
 /**
  *
  * @author Danish Akbar
  */
 public class Dollar extends Money{
-private int amount;
-public Dollar(int amount) {
-        this.amount = amount;
+//    @Override
+//   Money times(int multiplier) {
+//      return new Dollar(amount * multiplier,null);
+//}
+    public Dollar(int amount,String currency) {
+        super(amount, currency);
     }
-
-    @Override
-    Money times(int multiply) {
-       return new Dollar(amount*multiply);
-    }
-    public boolean equals(Object obj){
-    Dollar dollar=(Dollar)obj;
-    return amount==dollar.amount;
-    }
+    
     
 }

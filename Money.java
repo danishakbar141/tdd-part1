@@ -2,18 +2,53 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example6;
-
+package money;
 
 /**
  *
  * @author Danish Akbar
  */
-abstract class Money {
-    abstract Money times(int multiply);
+public  class Money {
+
     protected int amount;
-    public boolean equals(Object obj){
-    Money money=(Money)obj;
-    return amount==money.amount && getClass().equals(money.getClass());
+    protected String currency;
+
+   public  Money times(int multiplier){
+         return new Money(amount*multiplier, currency) ;
+         
     }
+
+    String currency() {
+
+        return currency;
+
+    }
+
+   public  Money(int amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    static Money pkrRupee(int amount) {
+        return new PkrRupee(amount, "pkrRupee");
+    }
+
+    static Money dollar(int amount) {
+        return new Dollar(amount, "USD");
+    }
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        Money money = (Money) object;
+        return amount == money.amount
+                && getClass().equals(money.getClass());
+    }
+    @Override
+    public String toString() {
+   return amount + " " + currency;
+}
 }
