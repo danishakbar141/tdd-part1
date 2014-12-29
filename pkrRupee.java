@@ -2,8 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ChnageMadeByMe;
-
+package money;
 
 /**
  *
@@ -12,14 +11,21 @@ package ChnageMadeByMe;
 public class PkrRupee extends Money {
 
     private int amount;
+    private String currency;
 
     @Override
     Money times(int multiplier) {
-        return new PkrRupee(amount * multiplier);
+        return new PkrRupee(amount * multiplier,currency);
     }
 
-    public PkrRupee(int amount) {
-        this.amount = amount;
-        super.amount=amount; // because whn equals method compares amout from loacal amount it shoul have correct amount
-    } 
+    public PkrRupee(int amount,String currency) {
+        super(amount, currency);
+    }
+
+    @Override
+    String currency() {
+        return currency;
+    }
+
+   
 }

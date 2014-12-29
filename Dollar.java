@@ -2,8 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ChnageMadeByMe;
-
+package money;
 
 /**
  *
@@ -11,17 +10,19 @@ package ChnageMadeByMe;
  */
 public class Dollar extends Money{
 private  int amount;
+String currency;
     @Override
    Money times(int multiplier) {
-      return new Dollar(amount * multiplier);
+      return new Dollar(amount * multiplier,currency);
 }
-    public Dollar(int amount) {
-        this.amount=amount;
-        super.amount = amount;// because whn equals method compares amout from loacal amount it shoul have correct amount
+    public Dollar(int amount,String currency) {
+        super(amount, currency);
     }
-static Money dollar(int amount) {
- return new Dollar(amount);
-}
+
+    @Override
+    String currency() {
+        return currency;
+    }
     
     
 }
