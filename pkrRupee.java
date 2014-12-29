@@ -2,30 +2,27 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package money;
+package example6;
+
 
 /**
  *
  * @author Danish Akbar
  */
-public class PkrRupee extends Money {
+public class pkrRupee extends Money{
+private int amount;
 
-    private int amount;
-    private String currency;
-
-    @Override
-    Money times(int multiplier) {
-        return new PkrRupee(amount * multiplier,currency);
-    }
-
-    public PkrRupee(int amount,String currency) {
-        super(amount, currency);
+public pkrRupee(int amount) {
+        this.amount = amount;
     }
 
     @Override
-    String currency() {
-        return currency;
+    Money times(int multiply) {
+       return new pkrRupee(amount*multiply);
     }
-
-   
+@Override
+    public boolean  equals(Object obj){
+    pkrRupee pk=(pkrRupee)obj;
+    return amount==pk.amount;
+    }
 }
