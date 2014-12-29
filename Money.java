@@ -30,11 +30,11 @@ public  class Money {
     }
 
     static Money pkrRupee(int amount) {
-        return new PkrRupee(amount, "pkrRupee");
+        return new Money(amount, "pkrRupee");
     }
 
     static Money dollar(int amount) {
-        return new Dollar(amount, "USD");
+        return new Money(amount, "USD");
     }
 
     public static void main(String[] args) {
@@ -45,7 +45,7 @@ public  class Money {
     public boolean equals(Object object) {
         Money money = (Money) object;
         return amount == money.amount
-                && getClass().equals(money.getClass());
+                && currency().equals(money.currency);
     }
     @Override
     public String toString() {
