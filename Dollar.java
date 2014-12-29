@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example6;
+package ChnageMadeByMe;
 
 
 /**
@@ -10,18 +10,18 @@ package example6;
  * @author Danish Akbar
  */
 public class Dollar extends Money{
-private int amount;
-public Dollar(int amount) {
-        this.amount = amount;
-    }
-
+private  int amount;
     @Override
-    Money times(int multiply) {
-       return new Dollar(amount*multiply);
+   Money times(int multiplier) {
+      return new Dollar(amount * multiplier);
+}
+    public Dollar(int amount) {
+        this.amount=amount;
+        super.amount = amount;// because whn equals method compares amout from loacal amount it shoul have correct amount
     }
-    public boolean equals(Object obj){
-    Dollar dollar=(Dollar)obj;
-    return amount==dollar.amount;
-    }
+static Money dollar(int amount) {
+ return new Dollar(amount);
+}
+    
     
 }

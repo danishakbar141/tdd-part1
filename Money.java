@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example6;
+package ChnageMadeByMe;
 
 
 /**
@@ -10,10 +10,27 @@ package example6;
  * @author Danish Akbar
  */
 abstract class Money {
-    abstract Money times(int multiply);
+
     protected int amount;
-    public boolean equals(Object obj){
-    Money money=(Money)obj;
-    return amount==money.amount && getClass().equals(money.getClass());
+
+    abstract Money times(int multiplier);
+    
+
+    static Money pkrRupee(int amount) {
+        return new PkrRupee(amount);
+    }
+
+    static Money dollar(int amount) {
+        return new Dollar(amount);
+    }
+   
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+    @Override
+    public boolean equals(Object object) {
+        Money money = (Money) object;
+        return amount == money.amount
+                && getClass().equals(money.getClass());
     }
 }

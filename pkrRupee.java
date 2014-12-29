@@ -2,27 +2,24 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example6;
+package ChnageMadeByMe;
 
 
 /**
  *
  * @author Danish Akbar
  */
-public class pkrRupee extends Money{
-private int amount;
+public class PkrRupee extends Money {
 
-public pkrRupee(int amount) {
-        this.amount = amount;
-    }
+    private int amount;
 
     @Override
-    Money times(int multiply) {
-       return new pkrRupee(amount*multiply);
+    Money times(int multiplier) {
+        return new PkrRupee(amount * multiplier);
     }
-@Override
-    public boolean  equals(Object obj){
-    pkrRupee pk=(pkrRupee)obj;
-    return amount==pk.amount;
-    }
+
+    public PkrRupee(int amount) {
+        this.amount = amount;
+        super.amount=amount; // because whn equals method compares amout from loacal amount it shoul have correct amount
+    } 
 }
