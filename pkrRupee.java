@@ -2,29 +2,26 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package exmp4;
+package example5;
 
 /**
  *
  * @author Danish Akbar
  */
-public class pkrRupee {
+public class pkrRupee extends Money{
 private int amount;
-pkrRupee(int amount){
-this.amount=amount;
-}
-public pkrRupee times(int multiplier){
-return new pkrRupee(amount*multiplier);
-}
-public int getamount(){
-return amount;
-}
+
+public pkrRupee(int amount) {
+        this.amount = amount;
+    }
+
+    @Override
+    Money times(int multiply) {
+       return new pkrRupee(amount*multiply);
+    }
 @Override
-public boolean equals(Object obj){
-    pkrRupee dol=(pkrRupee)obj;
-    return amount==dol.amount;
-}
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public boolean  equals(Object obj){
+    pkrRupee pk=(pkrRupee)obj;
+    return amount==pk.amount;
     }
 }
