@@ -16,6 +16,7 @@ public class DollarTest {
     public DollarTest() {
     }
 
+    @Test
     public void testTimes() {
         Money mon = Money.dollar(5);
         assertEquals(Money.dollar(10), mon.times(2));
@@ -38,11 +39,26 @@ public class DollarTest {
         assertTrue(new Money(10, "pkrRupee").equals(new PkrRupee(10, "pkrRupee")));
     }
 
+    @Test
     public void testAdd() {
         Money five = Money.dollar(5);
         Expression sum = five.plus(five);
         Bank bank = new Bank();
         Money reduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), reduced);
+    }
+
+    @Test
+    public void testReduceSum() {
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+@Test
+    public void testReduceMoney() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
     }
 }

@@ -9,5 +9,6 @@ package money;
  * @author Danish Akbar
  */
 interface Expression {
+    Money reduce(String to);
     
 }
