@@ -39,4 +39,8 @@ public class DollarTest {
         assertFalse(Money.pkrRupee(5).equals(Money.pkrRupee(6)));
         assertFalse(Money.pkrRupee(5).equals(Money.dollar(5)));
     }
+@Test
+public void testClass() {
+        assertTrue(new Money(10, "pkrRupee").equals(new PkrRupee(10, "pkrRupee")));
+}
 }
