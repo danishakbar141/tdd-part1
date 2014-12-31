@@ -26,6 +26,10 @@ public class Sum implements Expression {
 
     @Override
     public Expression plus(Expression addend) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new Sum(this, addend);
     }
+    @Override
+    public Expression times(int multiplier) {
+    return new Sum(augend.times(multiplier),addend.times(multiplier));
+}
 }
