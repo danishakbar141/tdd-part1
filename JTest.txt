@@ -20,5 +20,9 @@ public class DollarTest {
         int expResult = 25;
         instance.times(multiplier);
         assertEquals(expResult,instance.getamount());
+        expResult=30;
+        instance.times(multiplier);
+        assertEquals(expResult,instance.getamount());
+        
     }
 }
