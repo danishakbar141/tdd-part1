@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example6;
+package ChnageMadeByMe;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,23 +16,27 @@ import static org.junit.Assert.*;
  * @author Danish Akbar
  */
 public class DollarTest {
-    
+
     public DollarTest() {
     }
-    
- public void testTimes() {
-      pkrRupee pk= new pkrRupee(5);
-        assertEquals(new pkrRupee(10), pk.times(2));
-        assertEquals(new pkrRupee(15), pk.times(3));
-        Dollar dol=new Dollar(5);
-        assertEquals(new Dollar(10), dol.times(2));
-        assertEquals(new Dollar(15), dol.times(3));
-        
+    @Test
+    public void testTimes() {
+        Money mon = Money.dollar(5);
+        assertEquals(Money.dollar(10), mon.times(2));
+        assertEquals(Money.dollar(15), mon.times(3));
     }
     @Test
-    public void testequal(){
-       assertTrue(new pkrRupee(5).equals(new pkrRupee(5)));
-       assertFalse(new pkrRupee(5).equals(new pkrRupee(6)));
-       assertFalse(new pkrRupee(5).equals(new Dollar(5)));
+    public void testEqual() {
+        assertTrue(Money.dollar(5).equals(Money.dollar(5)));
+        assertFalse(Money.dollar(5).equals(Money.dollar(6)));
+        assertTrue(new PkrRupee(5).equals(new PkrRupee(5)));
+        assertFalse(new PkrRupee(5).equals(new PkrRupee(6)));
+        assertFalse(new PkrRupee(5).equals(Money.dollar(5)));
+
+        assertTrue(Money.dollar(5).equals(Money.dollar(5)));
+        assertFalse(Money.dollar(5).equals(Money.dollar(6)));
+        assertTrue(Money.pkrRupee(5).equals(Money.pkrRupee(5)));
+        assertFalse(Money.pkrRupee(5).equals(Money.pkrRupee(6)));
+        assertFalse(Money.pkrRupee(5).equals(Money.dollar(5)));
     }
 }
