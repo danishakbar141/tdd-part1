@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example1;
+package example3;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,17 +12,24 @@ import static org.junit.Assert.*;
  * @author Danish Akbar
  */
 public class DollarTest {
+    
+    public DollarTest() {
+    }
     @Test
     public void testTimes() {
         System.out.println("times");
         int multiplier = 5;
         Dollar instance = new Dollar(5);
-        int expResult = 25;
-        instance.times(multiplier);
-        assertEquals(expResult,instance.getamount());
-        expResult=30;
-        instance.times(multiplier);
-        assertEquals(expResult,instance.getamount());
-        
+        Dollar expResult = instance.times(2);
+        assertEquals(expResult,new Dollar(10));
+        expResult = instance.times(3);
+        assertEquals(expResult,new Dollar(15));
+        // TODO review the generated test code and remove the default call to fail.
+      //  fail("The test case is a prototype.");
+    }
+    @Test
+    public void testequal(){
+       assertTrue(new Dollar(5).equals(new Dollar(5)));
+       assertFalse(new Dollar(5).equals(new Dollar(6)));
     }
 }
