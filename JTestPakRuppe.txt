@@ -1,0 +1,33 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package example4;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Danish Akbar
+ */
+public class pkrRupeeTest {
+    
+ public pkrRupeeTest() {
+    }
+    @Test
+    public void testTimes() {
+      pkrRupee pk= new pkrRupee(5);
+       assertEquals(new pkrRupee(10), pk.times(2));
+        assertEquals(new pkrRupee(15), pk.times(3));
+    }
+    @Test
+    public void testequal(){
+       assertTrue(new pkrRupee(5).equals(new pkrRupee(5)));
+       assertFalse(new pkrRupee(5).equals(new pkrRupee(6)));
+    }
+}
