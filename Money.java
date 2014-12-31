@@ -13,7 +13,7 @@ public  class Money implements Expression{
     protected int amount;
     protected String currency;
 
-   public  Money times(int multiplier){
+   public  Expression times(int multiplier){
          return new Money(amount*multiplier, currency) ;        
     }
 
@@ -22,7 +22,7 @@ public  class Money implements Expression{
         return currency;
 
     }
-   public Expression plus(Money Add){
+   public Expression plus(Expression Add){
        return new Sum(this,Add);
    }
    public  Money(int amount, String currency) {

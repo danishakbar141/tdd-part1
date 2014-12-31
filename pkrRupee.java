@@ -9,11 +9,6 @@ package money;
  * @author Danish Akbar
  */
 public class PkrRupee extends Money {
-//    @Override
-//    Money times(int multiplier) {
-//        return new PkrRupee(amount * multiplier,currency);
-//    }
-
     public PkrRupee(int amount,String currency) {
         super(amount, currency);
     }
