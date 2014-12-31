@@ -8,7 +8,7 @@ package money;
  *
  * @author Danish Akbar
  */
-public  class Money {
+public  class Money implements Expression{
 
     protected int amount;
     protected String currency;
@@ -23,7 +23,9 @@ public  class Money {
         return currency;
 
     }
-
+   public Money plus(Money Add){
+       return new Money(amount+Add.amount, currency);
+   }
    public  Money(int amount, String currency) {
         this.amount = amount;
         this.currency = currency;

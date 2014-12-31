@@ -2,12 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ChnageMadeByMe;
+package money;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,28 +15,34 @@ public class DollarTest {
 
     public DollarTest() {
     }
-    @Test
+
     public void testTimes() {
         Money mon = Money.dollar(5);
         assertEquals(Money.dollar(10), mon.times(2));
         assertEquals(Money.dollar(15), mon.times(3));
     }
+
     @Test
     public void testEqual() {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));
-        assertTrue(new PkrRupee(5).equals(new PkrRupee(5)));
-        assertFalse(new PkrRupee(5).equals(new PkrRupee(6)));
-        assertFalse(new PkrRupee(5).equals(Money.dollar(5)));
-
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));
         assertTrue(Money.pkrRupee(5).equals(Money.pkrRupee(5)));
         assertFalse(Money.pkrRupee(5).equals(Money.pkrRupee(6)));
         assertFalse(Money.pkrRupee(5).equals(Money.dollar(5)));
     }
-@Test
-public void testClass() {
+
+    @Test
+    public void testClass() {
         assertTrue(new Money(10, "pkrRupee").equals(new PkrRupee(10, "pkrRupee")));
-}
+    }
+
+    public void testAdd() {
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), reduced);
+    }
 }
