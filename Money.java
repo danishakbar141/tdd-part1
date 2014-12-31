@@ -51,10 +51,11 @@ public  class Money implements Expression{
     @Override
     public String toString() {
    return amount + " " + currency;
-}
+    }
 
     @Override
-    public Money reduce(String to) {
-        return this;
+    public Money reduce(Bank bank, String to) {
+        int rate=bank.rate(this.currency, to);
+        return new Money(amount /rate , to);
     }
 }
