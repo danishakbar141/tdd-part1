@@ -2,8 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package example4;
+package example6;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,15 +19,20 @@ public class DollarTest {
     
     public DollarTest() {
     }
-    @Test
-    public void testTimes() {
-      Dollar dollar= new Dollar(5);
-       assertEquals(new Dollar(10), dollar.times(2));
-        assertEquals(new Dollar(15), dollar.times(3));
+    
+ public void testTimes() {
+      pkrRupee pk= new pkrRupee(5);
+        assertEquals(new pkrRupee(10), pk.times(2));
+        assertEquals(new pkrRupee(15), pk.times(3));
+        Dollar dol=new Dollar(5);
+        assertEquals(new Dollar(10), dol.times(2));
+        assertEquals(new Dollar(15), dol.times(3));
+        
     }
     @Test
     public void testequal(){
-       assertTrue(new Dollar(5).equals(new Dollar(5)));
-       assertFalse(new Dollar(5).equals(new Dollar(6)));
+       assertTrue(new pkrRupee(5).equals(new pkrRupee(5)));
+       assertFalse(new pkrRupee(5).equals(new pkrRupee(6)));
+       assertFalse(new pkrRupee(5).equals(new Dollar(5)));
     }
 }
